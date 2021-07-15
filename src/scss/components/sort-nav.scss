@@ -1,0 +1,95 @@
+@import "../variables";
+
+.sort {
+  width: 100%;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    height: 50px;
+    margin: 0 0 10px;
+
+  }
+
+  &__label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    svg {
+      fill: $white;
+      margin-right: 8px;
+      transform: rotate(180deg);
+
+      &.rotated {
+        transform: rotate(0deg);
+      }
+    }
+
+    b {
+      color: rgba($white, .7);
+      margin-right: 8px;
+    }
+
+    span {
+      color: rgba($white, .7);
+      border-bottom: 1px dashed $white;
+      cursor: pointer;
+    }
+  }
+
+  &__arrow {
+    transition: all .2s linear;
+  }
+
+  &__popup {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    margin-top: 1.5rem;
+    background: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 160px;
+
+    ul {
+      overflow: hidden;
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+        }
+
+        &.active {
+          font-weight: bold;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .sort {
+    &__items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+
+    }
+  }
+
+
+}

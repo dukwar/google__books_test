@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'libs/normalize';
+@import 'components/all';
+
+.wrapper {
+  width: 100%;
+  min-height: 150vh;
+  background-color: #fff;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.content {
+
+  &__title {
+    text-align: center;
+    margin: 2rem 0 1rem;
+  }
+
+  &__found {
+    text-align: center;
+    margin: 0 0 1rem;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+}
