@@ -1,27 +1,26 @@
 import React from "react";
+import {bookItemType} from "./types";
 
-function BookItem() {
+function BookItem({title, authors, img, categories}: bookItemType) {
 
     return (
         <>
            <section className="book">
                <div className="book__inner">
                    <div className="book__img">
-                       <img src="https://nowatermark.ozone.ru/s3/multimedia-x/wc1200/6069902673.jpg" alt=""/>
+                       <img src={img} alt=""/>
                    </div>
                    <div className="book__category">
-                       <p>Computers</p>
+                       <p>{categories}</p>
                    </div>
                    <div className="book__title">
-                       <h3>Мартин Иден</h3>
+                       <h3>{title}</h3>
                    </div>
                    <div className="book__author">
-                       <p>Джек Лондон</p>
+                       <p>{authors}</p>
                    </div>
                </div>
            </section>
-
-
         </>
     );
 }

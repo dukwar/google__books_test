@@ -1,12 +1,15 @@
 import React from "react"
 import classNames from "classnames"
+import Preloader from "../ComponentHelpers/Preloader";
 
 interface Props {
     className: string,
+    onClick?: () => void,
+    disabled?: boolean,
     children: React.ReactNode
 }
 
-function Button({className, children}:Props) {
+function Button({className, onClick, disabled, children}:Props) {
 
     const classes = classNames(
         'button',
@@ -16,7 +19,10 @@ function Button({className, children}:Props) {
     return (
         <>
             <button
-                className={classes}>
+                className={classes}
+                onClick={onClick}
+                disabled={disabled}
+            >
                 {children}
             </button>
         </>

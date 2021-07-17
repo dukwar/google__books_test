@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useFormik} from "formik";
-import Button from "./Button";
+import Button from "./Button/Button";
 import {Call, Cart, Heart, Profile} from "./Sprites";
 import Navbar from "./Navbar/Navbar";
 import {useBooksActions} from "../hooks/useActions.hook";
@@ -14,6 +14,7 @@ function Header() {
     const {getBooks, setCurrentIndex} = useBooksActions()
     const filter = useTypesSelector(({filters}) => filters)
     const currentIndex = useTypesSelector(({books}) => books.currentIndex)
+    const currentTitle = useTypesSelector(({books}) => books.currentTitle)
     const {request} = useRequest()
 
 
@@ -22,10 +23,11 @@ function Header() {
         initialValues: {
             search: '',
         },
-        onSubmit: (values) => {
+        onSubmit: ({search}) => {
             setCurrentIndex(0)
-            alert(values.search)
-            getBooks(request, values.search, currentIndex,30, filter.sortBy, filter.category)
+            alert(search)
+            if (currentTitle !== search)
+            getBooks(request, search, currentIndex,30, filter.sortBy, filter.category)
         }
     })
 
@@ -49,30 +51,30 @@ function Header() {
                                             onChange={formik.handleChange}
                                             value={formik.values.search}
                                         />
-                                        {!formik.values.search && <label htmlFor="search">Поиск по библиотеке</label>}
-                                        <Button className="button--search">Найти</Button>
+                                        {!formik.values.search && <label htmlFor="search">Library search</label>}
+                                        <Button className="button--search">Search</Button>
                                     </form>
                                 </div>
 
                                 <div className="header__icons">
                                     <div className="header__icons--item">
                                         <Call className="header__icon"/>
-                                        <p>Позвонить</p>
+                                        <p>Call</p>
                                     </div>
 
                                     <div className="header__icons--item">
                                         <Profile className="header__icon"/>
-                                        <p>Профиль</p>
+                                        <p>Profile</p>
                                     </div>
 
                                     <div className="header__icons--item">
                                         <Heart className="header__icon"/>
-                                        <p>Отложено</p>
+                                        <p>Postponed</p>
                                     </div>
 
                                     <div className="header__icons--item">
                                         <Cart className="header__icon"/>
-                                        <p>Корзина</p>
+                                        <p>Cart</p>
                                     </div>
 
                                 </div>

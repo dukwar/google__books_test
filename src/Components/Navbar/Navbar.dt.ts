@@ -1,31 +1,31 @@
 export const navbarData = [
     {
         id: 1,
-        title: 'Книги'
+        title: 'Books'
     },
 
     {
         id: 2,
-        title: 'Главное'
+        title: 'School'
     },
 
     {
         id: 3,
-        title: 'Школа'
+        title: 'Toys'
     },
 
     {
         id: 4,
-        title: 'Канцтовары'
+        title: 'Stationery'
     },
 
     {
         id: 5,
-        title: 'Сувениры'
+        title: 'Souvenirs'
     },
 
     {
         id: 6,
-        title: 'Журналы'
+        title: 'Magazines'
     },
 ]

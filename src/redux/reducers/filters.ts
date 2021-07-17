@@ -1,4 +1,5 @@
-import {SET_BOOKS, SET_CATEGORIES, SET_SORT_BY} from "../constants";
+import {SET_CATEGORIES, SET_SORT_BY} from "../constants";
+import {filtersActionType} from "../actions/types";
 
 
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
 
 type initialStateType = typeof initialState
 
-const filters = (state = initialState, action:any):initialStateType => {
+const filters = (state = initialState, action:filtersActionType):initialStateType => {
 
     switch (action.type) {
         case SET_CATEGORIES:

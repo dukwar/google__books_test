@@ -13,7 +13,7 @@ function SwiperHome() {
         <>
             <section className="swiper-home--title">
                 <div className="container">
-                    <h1>Новинки</h1>
+                    <h1>New items</h1>
                 </div>
             </section>
 
