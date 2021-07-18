@@ -39,7 +39,7 @@
 
     span {
       color: rgba($white, .7);
-      border-bottom: 1px dashed $white;
+      border-bottom: 1px dashed rgba($white, .7);
       cursor: pointer;
     }
   }

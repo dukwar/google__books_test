@@ -1,5 +1,13 @@
-import {SET_BOOKS, SET_CATEGORIES, SET_CURRENT_INDEX, SET_CURRENT_TITLE, SET_FETCHING, SET_SORT_BY} from "../constants";
-import {booksType} from "../reducers/types";
+import {
+    SET_BOOK_ITEM,
+    SET_BOOKS,
+    SET_CATEGORIES,
+    SET_CURRENT_INDEX,
+    SET_FETCHING, SET_FETCHING_ITEM,
+    SET_MORE_BOOKS,
+    SET_SORT_BY
+} from "../constants";
+import {bkItemType, booksType} from "../reducers/types";
 
 // books
 interface setBooksType {
@@ -8,16 +16,23 @@ interface setBooksType {
     title: string
 }
 
+interface setMoreBooksType {
+    type: typeof SET_MORE_BOOKS,
+    payload: booksType,
+}
 
-interface setCurrentTitleType {
-    type: typeof SET_CURRENT_TITLE,
-    payload: string
+export const setMoreBooks = (books:booksType) => {
+    return {
+        type: SET_MORE_BOOKS,
+        payload: books,
+    }
 }
 
 
 interface setCurrentIndexType {
     type: typeof SET_CURRENT_INDEX,
-    payload: number
+    payload: number,
+    title: string
 }
 
 
@@ -26,7 +41,7 @@ interface setFetchingType {
     payload: boolean
 }
 
-export type booksActionType =  setBooksType | setCurrentTitleType | setCurrentIndexType | setFetchingType
+export type booksActionType =  setBooksType | setMoreBooksType | setCurrentIndexType | setFetchingType
 
 // filters
 
@@ -43,3 +58,20 @@ interface setSortByType {
 
 export type filtersActionType = setCategoriesType | setSortByType
 
+
+// bookItem
+
+export interface setBookItemType {
+    type: typeof SET_BOOK_ITEM,
+    payload: bkItemType
+}
+
+export interface setFetchingItemType {
+    type: typeof SET_FETCHING_ITEM,
+    payload: boolean
+}
+
+
+
+
+export type setBookItemActionType = setBookItemType | setFetchingItemType

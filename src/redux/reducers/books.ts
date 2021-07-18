@@ -1,4 +1,4 @@
-import {SET_BOOKS, SET_CURRENT_INDEX, SET_CURRENT_TITLE, SET_FETCHING} from "../constants";
+import {SET_BOOKS, SET_CURRENT_INDEX, SET_FETCHING, SET_MORE_BOOKS} from "../constants";
 import {bookType} from "./types";
 import {booksActionType} from "../actions/types";
 
@@ -22,24 +22,33 @@ const books = (state = initialState, action: booksActionType): initialStateType 
 
             const totalItems = action.payload.totalItems
             const newItems = action.payload.items
-            const newTitle = state.books.length > 0 && action.title === state.currentTitle
+
 
             return {
                 ...state,
-                books: newTitle ? [...state.books, ...newItems] : [...newItems],
-                totalItems: totalItems
+                books: newItems,
+                totalItems: totalItems,
+                currentTitle: action.title
+            }
+
+        case SET_MORE_BOOKS:
+
+            const totalMoreItems = action.payload.totalItems
+            const newMoreItems = action.payload.items
+
+            return {
+                ...state,
+                books: [...state.books, ...newMoreItems],
+                totalItems: totalMoreItems,
             }
 
         case SET_CURRENT_INDEX:
-            return {
-                ...state,
-                currentIndex: state.currentIndex + action.payload
-            }
 
-        case SET_CURRENT_TITLE:
+
+
             return {
                 ...state,
-                currentTitle: action.payload
+                currentIndex: action.payload === 0 ? state.currentIndex = action.payload : state.currentIndex += action.payload
             }
 
         case SET_FETCHING:

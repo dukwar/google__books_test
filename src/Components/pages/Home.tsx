@@ -1,6 +1,6 @@
 import React from "react";
 import {useTypesSelector} from "../../hooks/useTypesSelector.hook";
-import BookItemContainer from "../BookItem/BookItemContainer";
+import BookBlockContainer from "../BookItem/BookBlockContainer";
 import Button from "../Button/Button";
 import SwiperHome from "../Swiper/SwiperHome";
 import {useRequest} from "../../hooks/request.hook";
@@ -18,8 +18,9 @@ function Home() {
     const {category, sortBy} = filters
     const {books, totalItems, currentTitle, currentIndex, maxLength, isFetching} = booksData
 
+
     const handleLoadMore = () => {
-        getBooks(request, currentTitle, currentIndex, maxLength, sortBy, category)
+        getBooks(request, currentTitle, currentIndex, maxLength, sortBy, category, 'getMoreBooks')
     }
 
     return (
@@ -29,10 +30,11 @@ function Home() {
                 <h2 className="content__title">All books</h2>
                 <p className="content__found">Results found: {totalItems}</p>
                 <section className="content__items">
-                    {books.length > 0 && books.map(({id, volumeInfo}) => {
+                    {books && books.map(({id, volumeInfo}, index) => {
                         const {title, authors, imageLinks, categories} = volumeInfo
-                        return <BookItemContainer
-                            key={id}
+                        return <BookBlockContainer
+                            key={`book-${id}-${index}`}
+                            id={id}
                             title={title}
                             authors={authors}
                             imageLinks={imageLinks}

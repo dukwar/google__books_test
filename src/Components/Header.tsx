@@ -7,27 +7,23 @@ import {useBooksActions} from "../hooks/useActions.hook";
 import {useTypesSelector} from "../hooks/useTypesSelector.hook";
 import {useRequest} from "../hooks/request.hook";
 import SortNav from "./SortNav/SortNav";
+import {NavLink} from "react-router-dom";
 
 function Header() {
-    console.log('RENDER HEADER')
 
     const {getBooks, setCurrentIndex} = useBooksActions()
     const filter = useTypesSelector(({filters}) => filters)
-    const currentIndex = useTypesSelector(({books}) => books.currentIndex)
-    const currentTitle = useTypesSelector(({books}) => books.currentTitle)
+    const {sortBy, category} = filter
     const {request} = useRequest()
-
-
 
     const formik = useFormik({
         initialValues: {
             search: '',
         },
+
         onSubmit: ({search}) => {
-            setCurrentIndex(0)
-            alert(search)
-            if (currentTitle !== search)
-            getBooks(request, search, currentIndex,30, filter.sortBy, filter.category)
+            setCurrentIndex(0, search)
+            getBooks(request, search, 0,30, sortBy, category, 'getBooks')
         }
     })
 
@@ -37,9 +33,12 @@ function Header() {
             <section className="header">
                 <div className="container">
                     <div className="header__inner">
-                        <div className="header__logo">
-                            <span><h1>Google Books</h1></span>
-                        </div>
+                        <NavLink to="/">
+                            <div className="header__logo">
+                                <span><h1>Google Books</h1></span>
+                            </div>
+                        </NavLink>
+
                         <section className="header__data">
                             <div className="header__service">
                                 <div className="header__search">
@@ -80,7 +79,7 @@ function Header() {
                                 </div>
                             </div>
 
-                            <Navbar />
+                            {/*<Navbar />*/}
                             <SortNav />
 
                         </section>

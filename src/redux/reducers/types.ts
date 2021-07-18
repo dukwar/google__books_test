@@ -15,3 +15,17 @@ export interface bookType {
         categories: string[]
     },
 }
+
+export interface bkItemType {
+    id: string,
+    volumeInfo: {
+        title: string,
+        authors: string[],
+        imageLinks: {
+            smallThumbnail: string,
+            thumbnail: string
+        },
+        categories: string[]
+        description: string
+    },
+}

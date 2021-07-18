@@ -1,4 +1,4 @@
-import {SET_BOOKS, SET_CURRENT_INDEX, SET_CURRENT_TITLE, SET_FETCHING} from "../constants";
+import {SET_BOOKS, SET_CURRENT_INDEX, SET_FETCHING, SET_MORE_BOOKS} from "../constants";
 import {booksActionType} from "./types";
 import {Dispatch} from "redux";
 import {booksType} from "../reducers/types";
@@ -12,17 +12,18 @@ export const setBooks = (books:booksType, title:string):booksActionType => {
     }
 }
 
-export const setCurrentTitle = (title:string):booksActionType => {
+export const setMoreBooks = (books:booksType):booksActionType => {
     return {
-        type: SET_CURRENT_TITLE,
-        payload: title
+        type: SET_MORE_BOOKS,
+        payload: books,
     }
 }
 
-export const setCurrentIndex = (index:number):booksActionType => {
+export const setCurrentIndex = (index:number, title:string):booksActionType => {
     return {
         type: SET_CURRENT_INDEX,
-        payload: index
+        payload: index,
+        title
     }
 }
 
@@ -34,20 +35,22 @@ export const setFetching = (data:boolean):booksActionType => {
     }
 }
 
-
-export const getBooks = (request: (url:string) => Promise<booksType>, title:string, startIndex:number, maxLength:number, orderBy:string, category:string) => async (dispatch:Dispatch<booksActionType>) => {
-
+export const getBooks = (request: (url:string) => Promise<booksType>, title:string, startIndex:number, maxLength:number, orderBy:string, category:string, action:string) => async (dispatch:Dispatch<booksActionType>) =>  {
     try {
         dispatch(setFetching(true))
         const res = await request(`https://www.googleapis.com/books/v1/volumes?q=${title}+subject:${category !== 'all' ? category : ''}&orderBy=${orderBy}&startIndex=${startIndex}&maxResults=${maxLength}&key=AIzaSyBWBR8ylMFqyDRRA4r6fkUaPKUkvVS1Q8o`)
         if (!res) {
-           throw new Error('Что-то пошло не так, попробуйте позднее!')
+            throw new Error('Что-то пошло не так, попробуйте позднее!')
         }
-        dispatch(setBooks(res, title))
-        dispatch(setCurrentTitle(title))
-        dispatch(setCurrentIndex(maxLength))
-        dispatch(setFetching(false))
 
+        if (action === 'getBooks') {
+            dispatch(setBooks(res, title))
+        } else {
+            dispatch(setMoreBooks(res))
+        }
+
+        dispatch(setCurrentIndex(maxLength, title))
+        dispatch(setFetching(false))
 
     } catch (e) {
         dispatch(setFetching(false))

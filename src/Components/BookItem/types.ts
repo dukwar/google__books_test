@@ -1,4 +1,5 @@
-export interface bookItemContainerType {
+export interface bookBlockContainerType {
+    id: string,
     title: string,
     imageLinks: {
         smallThumbnail: string,
@@ -8,7 +9,8 @@ export interface bookItemContainerType {
     categories: string[]
 }
 
-export interface bookItemType {
+export interface bookBlockType {
+    id: string,
     title: string,
     img: string,
     authors: string,

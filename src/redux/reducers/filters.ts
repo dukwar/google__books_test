@@ -4,7 +4,7 @@ import {filtersActionType} from "../actions/types";
 
 const initialState = {
     category: 'all',
-    sortBy: 'newest'
+    sortBy: 'relevance'
 }
 
 
