@@ -1,8 +1,14 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import {bookBlockType} from "./types";
+import noImage from '../../assets/book-item/noImage.jpg';
 
-function BookBlock({id, title, authors, img, categories}: bookBlockType) {
+
+const BookBlock = React.memo(({id, title, authors, imageLinks, categories}: bookBlockType) => {
+
+    const newImg = imageLinks ? imageLinks.thumbnail : noImage
+    const newAuthors = authors && authors.join(', ')
+    const newCategories = categories && categories.slice(0, 1).join('')
 
     return (
         <>
@@ -10,12 +16,12 @@ function BookBlock({id, title, authors, img, categories}: bookBlockType) {
                 <div className="book__inner">
                     <NavLink to={"/" + id}>
                         <div className="book__img">
-                            <img src={img} alt="altImg"/>
+                            <img src={newImg} alt="altImg"/>
                         </div>
                     </NavLink>
 
                     <div className="book__category">
-                        <p>{categories}</p>
+                        <p>{newCategories}</p>
                     </div>
                     <NavLink to={"/" + id}>
                         <div className="book__title">
@@ -24,12 +30,12 @@ function BookBlock({id, title, authors, img, categories}: bookBlockType) {
                     </NavLink>
 
                     <div className="book__author">
-                        <p>{authors}</p>
+                       <p>{newAuthors}</p>
                     </div>
                 </div>
             </section>
         </>
     );
-}
+})
 
 export default BookBlock

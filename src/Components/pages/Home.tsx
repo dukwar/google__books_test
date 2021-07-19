@@ -1,11 +1,11 @@
 import React from "react";
 import {useTypesSelector} from "../../hooks/useTypesSelector.hook";
-import BookBlockContainer from "../BookItem/BookBlockContainer";
 import Button from "../Button/Button";
 import SwiperHome from "../Swiper/SwiperHome";
 import {useRequest} from "../../hooks/request.hook";
 import {useBooksActions} from "../../hooks/useActions.hook";
 import Preloader from "../ComponentHelpers/Preloader";
+import BookBlock from "../BookItem/BookBlock";
 
 function Home() {
 
@@ -32,7 +32,7 @@ function Home() {
                 <section className="content__items">
                     {books && books.map(({id, volumeInfo}, index) => {
                         const {title, authors, imageLinks, categories} = volumeInfo
-                        return <BookBlockContainer
+                        return <BookBlock
                             key={`book-${id}-${index}`}
                             id={id}
                             title={title}
