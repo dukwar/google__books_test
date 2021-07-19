@@ -1,8 +1,8 @@
 import React from "react";
 import {useFormik} from "formik";
+import {useHistory, useLocation} from "react-router-dom"
 import Button from "./Button/Button";
 import {Call, Cart, Heart, Profile} from "./Sprites";
-import Navbar from "./Navbar/Navbar";
 import {useBooksActions} from "../hooks/useActions.hook";
 import {useTypesSelector} from "../hooks/useTypesSelector.hook";
 import {useRequest} from "../hooks/request.hook";
@@ -15,6 +15,8 @@ function Header() {
     const filter = useTypesSelector(({filters}) => filters)
     const {sortBy, category} = filter
     const {request} = useRequest()
+    const history = useHistory()
+    const location = useLocation()
 
     const formik = useFormik({
         initialValues: {
@@ -23,7 +25,8 @@ function Header() {
 
         onSubmit: ({search}) => {
             setCurrentIndex(0, search)
-            getBooks(request, search, 0,30, sortBy, category, 'getBooks')
+            getBooks(request, search, 0, 30, sortBy, category, 'getBooks')
+            location.pathname !== '/' && history.push('/')
         }
     })
 
@@ -79,14 +82,12 @@ function Header() {
                                 </div>
                             </div>
 
-                            {/*<Navbar />*/}
-                            <SortNav />
+                            <SortNav/>
 
                         </section>
                     </div>
                 </div>
             </section>
-
         </>
     );
 }

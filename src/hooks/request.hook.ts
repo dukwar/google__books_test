@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const useRequest = () => {
 
-    const request = useCallback(async (url) => {
+    const request = useCallback(async <T>(url:string):Promise<T | undefined> => {
         try {
             const res = await axios.get(url)
             return res.data

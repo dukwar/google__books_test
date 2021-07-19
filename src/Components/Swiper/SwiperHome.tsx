@@ -1,5 +1,5 @@
 import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination, Scrollbar} from 'swiper';
 import 'swiper/swiper-bundle.css';
 import {SwiperHomeData} from "./SwiperHome.dt";
@@ -48,8 +48,6 @@ function SwiperHome() {
                         clickable: true
                     }}
                 >
-
-
                     {SwiperHomeData.map(({id, img}) => {
                         return (
                             <SwiperSlide key={`swiperHome-${id}`} className="swiper-home--slide">
@@ -60,12 +58,8 @@ function SwiperHome() {
                 </Swiper>
             </div>
         </>
-
-
     )
 }
-
-
 
 
 export default SwiperHome

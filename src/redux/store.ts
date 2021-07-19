@@ -1,7 +1,6 @@
-import {compose, createStore, applyMiddleware} from "redux"
-import rootReducer from "./index"
-import thunk from 'redux-thunk'
-
+import {compose, createStore, applyMiddleware} from "redux";
+import rootReducer from "./index";
+import thunk from 'redux-thunk';
 
 
 const composeEnhancers =
@@ -12,7 +11,7 @@ const composeEnhancers =
         (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
 
-const configureStore = (preloadedState:any) => (
+export const configureStore = (preloadedState: any) => (
     createStore(
         rootReducer,
         preloadedState,
@@ -20,8 +19,7 @@ const configureStore = (preloadedState:any) => (
     )
 );
 
-
-
 const store = configureStore({})
+
 
 export default store

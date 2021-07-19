@@ -1,14 +1,15 @@
 import React from "react";
+import {preloaderType} from "./types";
 
-function Preloader() {
+function Preloader({className}: preloaderType) {
 
     return (
         <>
             <div className="lds-ring">
-                <div/>
-                <div/>
-                <div/>
-                <div/>
+                <div className={className}/>
+                <div className={className}/>
+                <div className={className}/>
+                <div className={className}/>
             </div>
         </>
     );

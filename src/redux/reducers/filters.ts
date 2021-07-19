@@ -8,10 +8,9 @@ const initialState = {
 }
 
 
-
 type initialStateType = typeof initialState
 
-const filters = (state = initialState, action:filtersActionType):initialStateType => {
+const filters = (state = initialState, action: filtersActionType): initialStateType => {
 
     switch (action.type) {
         case SET_CATEGORIES:

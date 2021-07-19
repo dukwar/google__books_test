@@ -1,10 +1,9 @@
+import {imageType} from "../../redux/reducers/types";
+
 export interface bookBlockContainerType {
     id: string,
     title: string,
-    imageLinks: {
-        smallThumbnail: string,
-        thumbnail: string
-    },
+    imageLinks: imageType,
     authors: string[],
     categories: string[]
 }

@@ -25,7 +25,7 @@ function Home() {
 
     return (
         <>
-            {/*<SwiperHome />*/}
+            <SwiperHome/>
             <div className="container">
                 <h2 className="content__title">All books</h2>
                 <p className="content__found">Results found: {totalItems}</p>
@@ -46,7 +46,7 @@ function Home() {
                 <div className="content__button">
                     <Button className="button--add" onClick={handleLoadMore} disabled={isFetching}>
                         {isFetching
-                            ? <Preloader/>
+                            ? <Preloader className="white"/>
                             : <h2>Load more</h2>
                         }
                     </Button>

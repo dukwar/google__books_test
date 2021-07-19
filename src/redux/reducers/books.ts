@@ -23,7 +23,6 @@ const books = (state = initialState, action: booksActionType): initialStateType 
             const totalItems = action.payload.totalItems
             const newItems = action.payload.items
 
-
             return {
                 ...state,
                 books: newItems,
@@ -44,8 +43,6 @@ const books = (state = initialState, action: booksActionType): initialStateType 
 
         case SET_CURRENT_INDEX:
 
-
-
             return {
                 ...state,
                 currentIndex: action.payload === 0 ? state.currentIndex = action.payload : state.currentIndex += action.payload
@@ -56,7 +53,6 @@ const books = (state = initialState, action: booksActionType): initialStateType 
                 ...state,
                 isFetching: action.payload
             }
-
 
         default:
             return state

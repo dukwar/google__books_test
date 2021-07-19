@@ -8,10 +8,7 @@ export interface bookType {
     volumeInfo: {
         title: string,
         authors: string[],
-        imageLinks: {
-            smallThumbnail: string,
-            thumbnail: string
-        },
+        imageLinks: imageType,
         categories: string[]
     },
 }
@@ -21,11 +18,13 @@ export interface bkItemType {
     volumeInfo: {
         title: string,
         authors: string[],
-        imageLinks: {
-            smallThumbnail: string,
-            thumbnail: string
-        },
-        categories: string[]
-        description: string
+        imageLinks: imageType,
+        categories: string[],
+        description: string,
     },
+}
+
+export interface imageType {
+    smallThumbnail: string,
+    thumbnail: string
 }

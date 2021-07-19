@@ -6,10 +6,11 @@ import {
     SET_FETCHING, SET_FETCHING_ITEM,
     SET_MORE_BOOKS,
     SET_SORT_BY
-} from "../constants";
-import {bkItemType, booksType} from "../reducers/types";
+} from "../constants"
+import {bkItemType, booksType} from "../reducers/types"
 
 // books
+
 interface setBooksType {
     type: typeof SET_BOOKS,
     payload: booksType,
@@ -21,7 +22,7 @@ interface setMoreBooksType {
     payload: booksType,
 }
 
-export const setMoreBooks = (books:booksType) => {
+export const setMoreBooks = (books: booksType) => {
     return {
         type: SET_MORE_BOOKS,
         payload: books,
@@ -41,7 +42,7 @@ interface setFetchingType {
     payload: boolean
 }
 
-export type booksActionType =  setBooksType | setMoreBooksType | setCurrentIndexType | setFetchingType
+export type booksActionType = setBooksType | setMoreBooksType | setCurrentIndexType | setFetchingType
 
 // filters
 
@@ -70,8 +71,6 @@ export interface setFetchingItemType {
     type: typeof SET_FETCHING_ITEM,
     payload: boolean
 }
-
-
 
 
 export type setBookItemActionType = setBookItemType | setFetchingItemType

@@ -1,5 +1,5 @@
-import React from "react"
-import classNames from "classnames"
+import React from "react";
+import classNames from "classnames";
 
 interface Props {
     className: string,
@@ -8,7 +8,7 @@ interface Props {
     children: React.ReactNode
 }
 
-function Button({className, onClick, disabled, children}:Props) {
+function Button({className, onClick, disabled, children}: Props) {
 
     const classes = classNames(
         'button',

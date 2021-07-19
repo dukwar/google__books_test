@@ -12,10 +12,10 @@ const initialState = {
 
 type initialStateType = typeof initialState
 
-const bkItem = (state = initialState, action:setBookItemActionType): initialStateType => {
+const bkItem = (state = initialState, action: setBookItemActionType): initialStateType => {
 
     switch (action.type) {
-      case SET_BOOK_ITEM:
+        case SET_BOOK_ITEM:
             return {
                 ...state,
                 book: action.payload

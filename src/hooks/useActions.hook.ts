@@ -1,10 +1,8 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as filtersActionCreators from "../redux/actions/filters"
-import * as booksActionCreators from "../redux/actions/books"
-import * as bookItemActionCreators from "../redux/actions/bk-item"
-
-
+import * as filtersActionCreators from "../redux/actions/filters";
+import * as booksActionCreators from "../redux/actions/books";
+import * as bookItemActionCreators from "../redux/actions/bk-item";
 
 
 export const useFiltersActions = () => {

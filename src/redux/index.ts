@@ -1,4 +1,4 @@
-import {combineReducers} from "redux"
+import {combineReducers} from "redux";
 import books from "./reducers/books";
 import filters from "./reducers/filters";
 import bkItem from "./reducers/bk-item";

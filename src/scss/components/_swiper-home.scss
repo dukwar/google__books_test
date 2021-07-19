@@ -5,15 +5,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 50px;
-  height: 50px;
-  color: $white;
+  min-width: 50px!important;
+  height: 50px!important;
+  color: $white!important;
   background-color: #232323;
   border-radius: 50%;
   transition: opacity .2s linear;
 
   &::after {
-    font-size: 1.5rem;
+    font-size: 1.5rem!important;
     font-weight: 600;
   }
 }
@@ -37,7 +37,7 @@
     text-align: center;
     margin-top: 2rem;
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
   }
@@ -70,9 +70,9 @@
 .swiper-pagination {
 
   &-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: $white;
+    width: 12px!important;
+    height: 12px!important;
+    background-color: $white!important;
     border-radius: 6px;
     margin: 0px 5px;
     cursor: pointer;
@@ -104,8 +104,8 @@
 
   .swiper-pagination {
     &-bullet {
-      width: 8px;
-      height: 8px;
+      width: 8px!important;
+      height: 8px!important;
     }
   }
 }
@@ -118,7 +118,6 @@
       h1 {
         font-size: 2rem!important;
       }
-
     }
   }
 

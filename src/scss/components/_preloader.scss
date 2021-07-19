@@ -8,7 +8,7 @@
   width: 80px;
   height: 80px;
 }
-.lds-ring div {
+.lds-ring .white {
   box-sizing: border-box;
   display: block;
   position: absolute;
@@ -19,6 +19,19 @@
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: $white transparent transparent transparent;
+}
+
+.lds-ring .black {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  margin: 8px;
+  border: 8px solid $black;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: $black transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
